@@ -28,9 +28,17 @@ namespace dotnet_core_email_sender.Repository
             emailMessage.From.Add(new MailboxAddress(_emailConfig.From));
             emailMessage.To.AddRange(message.To);
             emailMessage.Subject = message.Subject;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
+
+             //======Using Text in the Email Message Body========
+            // emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
+            // {
+            //     Text = message.Content
+            // };
+
+            //======Using HTML in the Email Message Body========
+            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
-                Text = message.Content
+                Text = string.Format("<h2 style='color:blue;'>{0}</h2>", message.Content)
             };
             return emailMessage;
         }

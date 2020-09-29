@@ -29,7 +29,7 @@ namespace dotnet_core_email_sender.Controllers
         {
             var rng = new Random();
 
-            var message = new Message(new string[] { "userMailId@gmail.com" }, "Test email by Asp.Net Core", "This is the content from our Asp.Net Core for testing.");
+            var message = new Message(new string[] { "userMailId@gmail.com" }, "Test email by Asp.Net Core", "This is the content from our Asp.Net Core for testing using HTML.");
             _emailSender.SendEmail(message);
 
 
